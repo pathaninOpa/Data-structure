@@ -1,0 +1,49 @@
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def init_trees(inp):
+    if inp == 0:
+        print("[]")
+        return []
+    return generate_trees(1, inp)
+
+def generate_trees(start, end):
+    result = []
+
+    if start > end:
+        result.append(None)
+        return result
+
+    for i in range(start, end + 1):
+        left_subtrees = generate_trees(start, i - 1)
+        right_subtrees = generate_trees(i + 1, end)
+
+        for left in left_subtrees:
+            for right in right_subtrees:
+                root = TreeNode(i)
+                root.left = left
+                root.right = right
+                result.append(root)
+
+    return result
+
+def preorder(root):
+    result = []
+    if root:
+        result.append(root.val)
+        result.extend(preorder(root.left))
+        result.extend(preorder(root.right))
+    return result
+
+def print_unique_bsts(inp):
+    trees = init_trees(inp)
+    for tree in trees:
+        fpreorder = preorder(tree)
+        print(fpreorder)
+
+inp = int(input("input: "))
+print_unique_bsts(inp)
+
