@@ -48,7 +48,6 @@ def trade_price(day, prices):
     return day[low], day[high + 1] #Return days with best trading price
 
 
-# Example usage
 day = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 price = [100, 113, 110, 85, 105, 102, 86, 63, 81, 101, 94, 106, 101, 79, 94, 90, 97]
 spacing = 3
