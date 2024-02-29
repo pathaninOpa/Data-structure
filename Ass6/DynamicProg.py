@@ -1,3 +1,5 @@
+#6481323
+
 def findMax(prices, n):
     revenue = [0] * (n + 1)
 
@@ -13,5 +15,5 @@ n = len(prices)
 
 max_revenue = findMax(prices, n)
 print("Prices:",prices)
-print("Rod length: ",len(prices))
+print("Rod length: ",n)
 print("Maximum revenue:",max_revenue)
